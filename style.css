@@ -55,4 +55,25 @@ body {
     white-space: pre-line;
     font-size: 15px;
   }
-  
+
+  @media (max-width: 480px) {
+  body {
+    padding: 20px;
+  }
+
+  input, button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .output {
+    font-size: 14px;
+    padding: 15px;
+    margin-top: 30px;
+    margin-bottom: 40px; /* Add this */
+  }
+}
