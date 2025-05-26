@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', function(){
+  new Glider(document.querySelector('.glider'), {
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    draggable: true,
+    dots: '.dots',
+    arrows: {
+      prev: '.glider-prev',
+      next: '.glider-next'
+    }
+  });
+});
+
+
 function copyOutput() {
   const output = document.getElementById('output').innerText;
 
@@ -66,6 +80,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
 function generate() {
+
+  
+  const outputElement = document.getElementById('output');
+  const copyButton = document.getElementById('copyBtn');
+  // Example output generation (replace with your actual logic)
+  const generatedOutput = "This is the generated output."; // Replace with actual output
+  // Set the output text
+  outputElement.textContent = generatedOutput;
+  // Show the output box and the copy button
+  outputElement.style.display = 'block'; // Show output box
+  copyButton.style.display = 'block'; // Show copy button
+
   const hargaBotolFormatted = document.getElementById('hargaBotol').value;
   const hargaBotol = fromRupiahFormat(hargaBotolFormatted);
   const namaBotol = document.getElementById('namaBotol').value;
@@ -92,7 +118,7 @@ function generate() {
     result += `⭐ Event : ${ongoingEvent}\n`
   }
 
-  result += `🍾 Bottle : ${namaBotol}\n`;
+  result += `💼 Item : ${namaBotol}\n`;
   result += `💰 Price (after Tax ${pajak}%) : ${toRupiah(totalPrice)}\n`;
   result += `💲 Price (per pax) : ${toRupiah(pricePerPax)}\n`;
 
@@ -110,4 +136,3 @@ function generate() {
   document.getElementById('output').innerText = result;
   document.getElementById('copyBtn').style.display = 'inline-block';
 }
-  

@@ -1,44 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🍾PT-PT Calculator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>🍾 PT-PT Calculator</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 </head>
 <body>
 
-  <h2>🍾PT-PT Calculator</h2>
+  <div class="container">
 
-  <input type="text" id="hargaBotol" placeholder="Harga Botol">
-  <input type="text" id="namaBotol" placeholder="Nama Item">
-  <input type="number" id="jumlahOrang" placeholder="Jumlah Orang Per-Table">
-  <input type="number" id="pajak" placeholder="Pajak (persen)">
-  <input type="text" id="namaVenue" placeholder="Nama Venue">
-  <input type="text" id="namaBank" placeholder="Nama Bank (Opsional)">
-  <input type="text" id="nomorRekening" placeholder="No Rekening (Opsional)">
-  <input type="text" id="namaRekening" placeholder="Nama Rekening (Opsional)">
-  <input type="text" id="ongoingEvent" placeholder="DJ/Event (Opsional)">
-  <input type="text" id="contactPerson" placeholder="Contact Person (Opsional)">
-  
-  <button onclick="generate()">Generate</button>
-
-  <div class="output" id="output"></div>
-  <button onclick="copyOutput()" id="copyBtn" style="display:none;">Copy Output</button>
+    <div class="flyer">
+    <h3>🎉 Flyer/Event Info</h3>
+    <div class="glider-contain">
+      <div class="glider">
+        <img src="https://i.imgur.com/AHKLdct.jpeg" alt="Flyer 1">
+      </div>
+      <button class="glider-prev">«</button>
+      <button class="glider-next">»</button>
+      <div role="tablist" class="dots"></div>
+    </div>
+    </div>
 
 
-  <script src="script.js"></script>
 
-  <footer style="margin-top: 40px; text-align: center; font-size: 14px; color: #555;">
-  <p>Version 1.1</p>
-  <p>
-    Made with 🍾 by Leynardo Yosef —
-    <a href="https://instagram.com/leynardoyosef" target="_blank" style="color: #0077cc; text-decoration: none;">
-      @leynardoyosef
-    </a>
-  </p>
+
+    <div class="calculator-output">
+      <h2>💻 PT-PT Calculator</h2>
+
+      <input type="text" id="hargaBotol" placeholder="Harga Total" />
+      <input type="text" id="namaBotol" placeholder="Nama Item" />
+      <input type="number" id="jumlahOrang" placeholder="Jumlah Orang" />
+      <input type="number" id="pajak" placeholder="Pajak (persen)" />
+      <input type="text" id="namaVenue" placeholder="Nama Venue" />
+      <input type="text" id="namaBank" placeholder="Nama Bank (Opsional)" />
+      <input type="text" id="nomorRekening" placeholder="No Rekening (Opsional)" />
+      <input type="text" id="namaRekening" placeholder="Nama Rekening (Opsional)" />
+      <input type="text" id="ongoingEvent" placeholder="DJ/Event/Others (Opsional)" />
+      <input type="text" id="contactPerson" placeholder="Contact Person (Opsional)" />
+
+      <button onclick="generate()">Generate</button>
+
+      <div class="output" id="output" style="display: none;"></div> <!-- Initially hidden -->
+      <button onclick="copyOutput()" id="copyBtn" style="display:none;">Copy Output</button>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>Version 1.2</p>
+    <p>
+      Made with 🍾 by Leynardo Yosef —
+      <a href="https://instagram.com/leynardoyosef" target="_blank">@leynardoyosef</a>
+    </p>
   </footer>
-
-
+  <script src="script.js"></script>
 </body>
 </html>
