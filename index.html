@@ -10,50 +10,89 @@
 </head>
 <body>
 
-  <div class="container">
-
-    <div class="flyer">
-    <h3>🎉 Flyer/Event Info</h3>
-      <div class="glider-contain">
-        <div class="glider">
-          <div class="slide">
-            <img src="https://i.imgur.com/AHKLdct.jpeg" alt="Flyer 1">
-          </div>
-          <div class="slide">
-            <img src="https://i.imgur.com/uX3Xpot.jpeg" alt="Flyer 2">
-          </div>
-        </div>
-
-        <button class="glider-prev">«</button>
-        <button class="glider-next">»</button>
-        <div role="tablist" class="dots"></div>
+  <header class="app-header" role="banner">
+    <div class="brand">
+      <img src="assets/logo tanpa beground warna.png" alt="Logo" class="brand-logo" />
+      <div class="brand-text">
+        <h1>PT-PT Calculator</h1>
+        <p>Kalkulator patungan, untuk menghitung total harga dan biaya per-orang</p>
       </div>
     </div>
+  </header>
+
+  <div class="container" role="main">
 
     <div class="calculator-output">
-      <h2>💻 PT-PT Calculator</h2>
+      <h2>Form Patungan</h2>
+      <p class="section-subtitle">Isi detailnya, lalu tekan Generate</p>
 
-      <input type="text" id="hargaBotol" placeholder="Harga Total" />
-      <input type="text" id="namaBotol" placeholder="Nama Item" />
-      <input type="number" id="jumlahOrang" placeholder="Jumlah Orang" />
-      <input type="number" id="pajak" placeholder="Pajak (persen)" />
-      <input type="text" id="namaVenue" placeholder="Nama Venue" />
-      <input type="text" id="namaBank" placeholder="Nama Bank (Opsional)" />
-      <input type="text" id="nomorRekening" placeholder="No Rekening (Opsional)" />
-      <input type="text" id="namaRekening" placeholder="Nama Rekening (Opsional)" />
-      <input type="text" id="ongoingEvent" placeholder="DJ/Event/Others (Opsional)" />
-      <input type="text" id="contactPerson" placeholder="Contact Person (Opsional)" />
+      <form class="form-grid" onsubmit="generate(); return false;" aria-describedby="formHelp">
+        <div class="form-group full">
+          <label for="hargaBotol">Harga Total</label>
+          <input type="text" id="hargaBotol" placeholder="Contoh: Rp 5.000.000" inputmode="numeric" aria-required="true" />
+        </div>
 
-      <button onclick="generate()">Generate</button>
+        <div class="form-group">
+          <label for="namaBotol">Nama Item</label>
+          <input type="text" id="namaBotol" placeholder="Contoh: Black Label" aria-required="true" />
+        </div>
 
-      <div class="output" id="output" style="display: none;"></div> <!-- Initially hidden -->
+        <div class="form-group">
+          <label for="jumlahOrang">Jumlah Orang</label>
+          <input type="number" id="jumlahOrang" placeholder="Contoh: 5" min="1" aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="pajak">Pajak (persen)</label>
+          <input type="number" id="pajak" placeholder="Contoh: 15" min="0" aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="namaVenue">Nama Venue</label>
+          <input type="text" id="namaVenue" placeholder="Contoh: Club XYZ" aria-required="true" />
+        </div>
+
+        <div class="form-group">
+          <label for="namaBank">Nama Bank (Opsional)</label>
+          <input type="text" id="namaBank" placeholder="Contoh: BCA" />
+        </div>
+
+        <div class="form-group">
+          <label for="nomorRekening">No Rekening (Opsional)</label>
+          <input type="text" id="nomorRekening" placeholder="1234567890" inputmode="numeric" />
+        </div>
+
+        <div class="form-group">
+          <label for="namaRekening">Nama Rekening (Opsional)</label>
+          <input type="text" id="namaRekening" placeholder="Nama Pemilik Rekening" />
+        </div>
+
+        <div class="form-group full">
+          <label for="ongoingEvent">DJ/Event/Others (Opsional)</label>
+          <input type="text" id="ongoingEvent" placeholder="Guest DJ, Promo, dll" />
+        </div>
+
+        <div class="form-group full">
+          <label for="contactPerson">Contact Person (Opsional)</label>
+          <input type="text" id="contactPerson" placeholder="Contoh: 08xxxxxxxxxx" />
+        </div>
+
+        <div class="form-group full">
+          <button type="submit">Generate</button>
+        </div>
+      </form>
+
+    </div>
+
+    <div class="result-card" id="resultCard" style="display: none;">
+      <div class="output" id="output" style="display: none;"></div>
       <button onclick="copyOutput()" id="copyBtn" style="display:none;">Copy Output</button>
     </div>
 
   </div>
 
-  <footer class="footer">
-    <p>Version 1.2</p>
+  <footer class="footer" role="contentinfo">
+    <p>Version 1.3</p>
     <p>
       Made with 🍾 by Leynardo Yosef —
       <a href="https://instagram.com/leynardoyosef" target="_blank">@leynardoyosef</a>

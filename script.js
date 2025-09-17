@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', function(){
-  new Glider(document.querySelector('.glider'), {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    draggable: true,
-    dots: '.dots',
-    arrows: {
-      prev: '.glider-prev',
-      next: '.glider-next'
-    }
-  });
+  const gliderEl = document.querySelector('.glider');
+  if (gliderEl && typeof Glider !== 'undefined') {
+    new Glider(gliderEl, {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      draggable: true,
+      dots: '.dots',
+      arrows: {
+        prev: '.glider-prev',
+        next: '.glider-next'
+      }
+    });
+  }
 });
 
 
@@ -84,13 +87,7 @@ function generate() {
   
   const outputElement = document.getElementById('output');
   const copyButton = document.getElementById('copyBtn');
-  // Example output generation (replace with your actual logic)
-  const generatedOutput = "This is the generated output."; // Replace with actual output
-  // Set the output text
-  outputElement.textContent = generatedOutput;
-  // Show the output box and the copy button
-  outputElement.style.display = 'block'; // Show output box
-  copyButton.style.display = 'block'; // Show copy button
+  const resultCard = document.getElementById('resultCard');
 
   const hargaBotolFormatted = document.getElementById('hargaBotol').value;
   const hargaBotol = fromRupiahFormat(hargaBotolFormatted);
@@ -105,7 +102,10 @@ function generate() {
   const namaBank = document.getElementById('namaBank').value;
 
   if (isNaN(hargaBotol) || isNaN(jumlahOrang) || isNaN(pajak) || !namaBotol || !namaVenue) {
-    document.getElementById('output').innerText = "Please fill in all fields correctly.";
+    // Keep output hidden if validation fails
+    if (resultCard) resultCard.style.display = 'none';
+    outputElement.style.display = 'none';
+    copyButton.style.display = 'none';
     return;
   }
 
@@ -133,6 +133,8 @@ function generate() {
   }
   
 
-  document.getElementById('output').innerText = result;
-  document.getElementById('copyBtn').style.display = 'inline-block';
+  outputElement.innerText = result;
+  if (resultCard) resultCard.style.display = 'block';
+  outputElement.style.display = 'block';
+  copyButton.style.display = 'inline-block';
 }
